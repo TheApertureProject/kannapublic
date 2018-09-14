@@ -15,6 +15,8 @@ print()
 import time
 from time import *
 print(('[' + ctime()) + "] Lib 'time' successfully imported !")
+import os
+print(('[' + ctime()) + "] Lib 'os' successfully imported !")
 import datetime
 from datetime import *
 print(('[' + ctime()) + "] Lib 'datetime' successfully imported !")

@@ -85,7 +85,7 @@ def is_owner(ctx):
     else :
         return False
 
-@bot.command()
+@bot.command(aliases=['hlp', 'commandlist', 'commands'])
 async def help(ctx):
     e = discord.Embed(description="Basic commands", title='Page 1', color=0x00FFC0, timestamp=datetime.utcnow())
     e.add_field(name='help', value='Displays this message')
@@ -116,33 +116,12 @@ async def help(ctx):
         b.add_field(name='shutdown', value='Shut me down...')
         await ctx.send(embed=b)
 
-@bot.command()
-async def userinfo(ctx, usr: discord.User):
-    e = discord.Embed(description='User Information', title="{}'s profile details".format(usr.name), color=0xFFFFFF, timestamp=datetime.utcnow())
-    e.set_thumbnail(url=usr.user.avatar_url)
-    e.add_field(name='User ID', value=usr.id)
-    e.add_field(name='Creation date', value=usr.created_at)
-    e.add_field(name='Nitro : {}'.format(usr.profile.nitro), value='HypeSquad : {}'.format(usr.profile.hypesquad))
-    e.add_field(name='Bot', value=usr.bot)
-    await ctx.send(embed=e)
-    if usr.user.bot==True:
-        e = discord.Embed(description='Bot Information', title="This user's a bot x3", color=0x0000FF, timestamp=datetime.utcnow())
-        e.add_field(name='Description', value=usr.AppInfo.description)
-        e.add_field(name='Owner', value=user.AppInfo.owner)
-        await ctx.send(embed=e)
-
-@bot.command()
-async def pressf(ctx):
-    await ctx.message.delete()
-    message = await ctx.send('Respects paid, press 🇫 to pay respects !')
-    await ctx.message.add_reaction('🇫')
-
-@bot.command()
+@bot.command(aliases=['add', 'invitelink'])
 async def invite(ctx):
     await ctx.send('Here is my invite link ! Thanks for adding me ♥')
     await ctx.send('<https://bit.ly/2KCvxDw>')
 
-@bot.command()
+@bot.command(aliases=['profilepic', 'ppic', 'avatar'])
 async def pp(ctx, usr: discord.User):
     e = discord.Embed(description="{}'s profile picture".format(usr.name), title='Avatar', color=0x5D5DFF, timestamp=datetime.utcnow())
     e.set_image(url=usr.avatar_url)

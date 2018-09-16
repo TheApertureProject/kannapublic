@@ -37,7 +37,7 @@ bot.remove_command('help')
 async def on_ready():
     print(('[' + ctime()) + '] Connection successfully established with the bot user :', bot.user.name)
     print('Bot user ID :', bot.user.name)
-    await bot.change_presence(activity=discord.Game(name=f'on {len(bot.guilds)} servers~ | k!help'))
+    await bot.change_presence(activity=discord.Game(name=f'on {len(bot.guilds)} servers | k!help'))
     print(('[' + ctime()) + '] Presence successfully updated !')
     print('___________________________________________________')
 
@@ -48,7 +48,7 @@ async def on_guild_join(guild):
     e = discord.Embed(description='', title='Server Joined - {}'.format(guild.name), color=1565439, timestamp=datetime.utcnow())
     e.add_field(name='Member count : {}'.format(guild.member_count), value='Created at {}'.format(guild.created_at))
     e.set_footer(text='Kanna - The Kawaii Discord bot')
-    await bot.change_presence(activity=discord.Game(name=f'on {len(bot.guilds)} servers~ | k!help'))
+    await bot.change_presence(activity=discord.Game(name=f'on {len(bot.guilds)} servers | k!help'))
     await join.send(embed=e)
 
 @bot.event
@@ -58,7 +58,7 @@ async def on_guild_remove(guild):
     e = discord.Embed(description='', title='Server left - {}'.format(guild.name), color=16744448, timestamp=datetime.utcnow())
     e.add_field(name='Member count : {}'.format(guild.member_count), value='Created at {}'.format(guild.created_at))
     e.set_footer(text='Kanna - The Kawaii Discord bot')
-    await bot.change_presence(activity=discord.Game(name=f'on {len(bot.guilds)} servers~ | k!help'))
+    await bot.change_presence(activity=discord.Game(name=f'on {len(bot.guilds)} servers | k!help'))
     await join.send(embed=e)
 
 @bot.event

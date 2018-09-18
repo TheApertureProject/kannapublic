@@ -237,7 +237,7 @@ async def clear(ctx, amount: int):
 		except:
 			await ctx.send("That didn't worked... You can't input text, that's what you did.")
 	else:
-	await ctx.send('The amount can not be zero. S~sorry...')
+		await ctx.send('The amount can not be zero. S~sorry...')
 
 @kick.error
 async def kick_handler(ctx, err):

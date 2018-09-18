@@ -74,7 +74,7 @@ async def on_command_error(ctx, error):
         await asyncio.sleep(0.5)
         await ctx.send("I can't let you do that !")
     elif isinstance(error, commands.MissingRequiredArgument):
-        await ctx.say('Member not found. Retry please !')
+        await ctx.say('Member not found. Sorry... Retry please !')
     elif isinstance(error, commands.InvalidArgument):
         await ctx.say('Member not found. Retry please !')
 

@@ -121,7 +121,7 @@ async def help(ctx):
 
 @commands.check(is_owner)
 @bot.command()
-async def owner()
+async def owner():
 	try:
 		await bot.send(f"`{ctime()}` : Access Granted ")
 		await bot.send('Yay~ this is my master !')

@@ -123,10 +123,10 @@ async def help(ctx):
 @bot.command()
 async def owner():
 	try:
-		await bot.send(f"`{ctime()}` : Access Granted ")
-		await bot.send('Yay~ this is my master !')
+		await ctx.send(f"`{ctime()}` : Access Granted ")
+		await ctx.send('Yay~ this is my master !')
 	except:
-		await bot.send("You're not my master ! S~sorry...")
+		await ctx.send("You're not my master ! S~sorry...")
 
 @bot.command(aliases=['add', 'invitelink'])
 async def invite(ctx):

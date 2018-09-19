@@ -104,7 +104,6 @@ async def help(ctx):
 	a.add_field(name='Lots of commands are going to be added soon !', value='💠')
 	c = discord.Embed(description='Utilities', title='Page 3', color=0x00FF40, timestamp=datetime.utcnow())
 	c.add_field(name='pp <user>', value='Get the profile picture of some user')
-	c.add_field(name='userinfo <user>', value='Get info about some Discord account')
 	d = discord.Embed(description='Fun', title='Page 4', color=0xFFA2DD, timestamp=datetime.utcnow())
 	#d.add_field(name='think', value='Take a break, just think a little :)')
 	#d.add_field(name='listen2u', value='This is interesting. Why not listen ?')
@@ -119,6 +118,15 @@ async def help(ctx):
 		b.add_field(name='say <channel> <text>', value='Talk through me !')
 		b.add_field(name='shutdown', value='Shut me down...')
 		await ctx.send(embed=b)
+
+@commands.check(is_owner)
+@bot.command()
+async def owner()
+	try:
+		await bot.send(f"`{ctime()}` : Access Granted ")
+		await bot.send('Yay~ this is my master !')
+	except:
+		await bot.send("You're not my master ! S~sorry...")
 
 @bot.command(aliases=['add', 'invitelink'])
 async def invite(ctx):

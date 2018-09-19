@@ -119,15 +119,6 @@ async def help(ctx):
 		b.add_field(name='shutdown', value='Shut me down...')
 		await ctx.send(embed=b)
 
-@commands.check(is_owner)
-@bot.command()
-async def owner():
-	try:
-		await ctx.send(f"`{ctime()}` : Access Granted ")
-		await ctx.send('Yay~ this is my master !')
-	except:
-		await ctx.send("You're not my master ! S~sorry...")
-
 @bot.command(aliases=['add', 'invitelink'])
 async def invite(ctx):
 	await ctx.send('Here is my invite link ! Thanks for adding me ♥')

@@ -228,15 +228,16 @@ async def kick(ctx, *, member: discord.Member):
 @commands.has_permissions(manage_messages=True)
 @bot.command()
 async def clear(ctx, amount: int):
+	msg = await ctx.send(f'Clearing `{amount}` messages... <a:loading:496419019847368714>')
 	amount=amount+1
 	if amount != 0:
 		try:
 			deleted = await ctx.channel.purge(limit=amount)
-			await ctx.send(f"Cleared {len(deleted)} messages for ya !", delete_after = 5)
+			await msg.edit(content=(f"Cleared {len(deleted)} messages for ya ! <a:kawaii:496421772850233344>", delete_after = 5)
 		except:
-			await ctx.send("That didn't worked... You can't input text, that's what you did.")
+			await msg.edit(content = "That didn't work... You can't input text, that's what you did.", delete_after = 5)
 	else:
-		await ctx.send('The amount can not be zero. S~sorry...')
+		await msg.edit(content = 'The amount can not be zero. S~sorry...', delete_after = 5)
 
 @kick.error
 async def kick_handler(ctx, err):

@@ -233,11 +233,11 @@ async def clear(ctx, amount: int):
 	if amount != 0:
 		try:
 			deleted = await ctx.channel.purge(limit=amount)
-			await msg.edit(content=(f"Cleared {len(deleted)} messages for ya ! <a:kawaii:496421772850233344>")
+			await msg.edit(content=(f'Cleared {len(deleted)} messages for ya ! <a:kawaii:496421772850233344>')
 		except:
-			await msg.edit(content = "That didn't work... You can't input text, that's what you did.")
+			await ctx.send('That didn't work... You can't input text, that's what you did.')
 	else:
-		await msg.edit(content = 'The amount can not be zero. S~sorry...')
+		await ctx.send('The amount can not be zero. S~sorry...')
 
 @kick.error
 async def kick_handler(ctx, err):

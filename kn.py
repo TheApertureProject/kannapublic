@@ -228,16 +228,15 @@ async def kick(ctx, *, member: discord.Member):
 @commands.has_permissions(manage_messages=True)
 @bot.command()
 async def clear(ctx, amount: int):
-	msg = await ctx.send(f'Clearing `{amount}` messages... <a:loading:496419019847368714>')
 	amount=amount+1
 	if amount != 0:
 		try:
 			deleted = await ctx.channel.purge(limit=amount)
-			await msg.edit(content=(f'Cleared {len(deleted)} messages for ya ! <a:kawaii:496421772850233344>')
+			await ctx.send(f"{len(deleted)} messages supprimés avec succès.", delete_after = 5)
 		except:
-			await ctx.send('That didn't work... You can't input text, that's what you did.')
+			await ctx.send("La quantité de messages doit être constituée uniquement de nombres entiers positifs.")
 	else:
-		await ctx.send('The amount can not be zero. S~sorry...')
+await ctx.send('La quantité de messages ne peut être égale à zéro :3')
 
 @kick.error
 async def kick_handler(ctx, err):

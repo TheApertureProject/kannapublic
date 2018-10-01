@@ -236,7 +236,7 @@ async def clear(ctx, amount: int):
 		except:
 			await ctx.send("La quantité de messages doit être constituée uniquement de nombres entiers positifs.")
 	else:
-await ctx.send('La quantité de messages ne peut être égale à zéro :3')
+	await ctx.send('La quantité de messages ne peut être égale à zéro :3')
 
 @kick.error
 async def kick_handler(ctx, err):

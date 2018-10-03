@@ -91,7 +91,7 @@ def is_owner(ctx):
 
 @bot.group(invoke_without_command=True, aliases=['hlp', 'commandlist', 'commands'])
 async def help(ctx):
-	e = discord.Embed(description="Help menu", title='SubPages', color=0x33CC33, timestamp=datetime.utcnow())
+	e = discord.Embed(description="Help categories", title='*Interactive help*', color=0x33CC33, timestamp=datetime.utcnow())
 	e.add_field(name='`info`', value='Bot information related commands')
 	e.add_field(name='`utilities`', value='All our amazing utilities !')
 	e.add_field(name='`moderator`', value='Moderation related commands')

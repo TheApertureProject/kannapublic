@@ -111,6 +111,12 @@ async def help_info(ctx):
 	e.add_field(name='`help`', value='Displays the primary help message')
 	await ctx.send(embed=e)
 
+#@help.command(name='utilities')
+#async def help_utilities(ctx):
+#	c = discord.Embed(description='Full commands list', title='Commands list', color=0x003366, timestamp=datetime.utcnow())
+#	c.add_field(name="`help`, `info`, `ping`, `suggest <suggestion>`", value='Get the profile picture of some user')
+#	await ctx.send(embed=c)
+
 @help.command(name='utilities')
 async def help_utilities(ctx):
 	c = discord.Embed(description='Utilities', title='Commands list', color=0x003366, timestamp=datetime.utcnow())

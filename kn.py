@@ -89,35 +89,59 @@ def is_owner(ctx):
 	else :
 		return False
 
-@bot.command(aliases=['hlp', 'commandlist', 'commands'])
+@bot.group(invoke_without_command=True, aliases=['hlp', 'commandlist', 'commands'])
 async def help(ctx):
-	e = discord.Embed(description="Basic commands", title='Page 1', color=0x00FFC0, timestamp=datetime.utcnow())
-	e.add_field(name='help', value='Displays this message')
-	e.add_field(name='info', value='Get to know me 💮')
-	e.add_field(name='ping', value='Test my reactivity !')
-	e.add_field(name='suggest <suggestion>', value='Tell us what you think we could improve on Kanna. Your suggestion will be sent to the official bot server.')
-	e.add_field(name='bugreport <bug>', value ='If you found some bug or error on Kanna, just tell us via this command ! Your report will be sent to the official bot server.')
-	a = discord.Embed(description="Moderator commands", title='Page 2', color=0x00FF80, timestamp=datetime.utcnow()) 
-	a.add_field(name='kick <member/id>', value='Kick someone from the server')
-	a.add_field(name='ban <member/id> <reason>', value='Kick a member from the server permanently (ban)')
-	a.add_field(name='clear <amount of messages>', value='Delete a specific number of messages (no limit - be extremely careful)')
-	a.add_field(name='Lots of commands are going to be added soon !', value='💠')
-	c = discord.Embed(description='Utilities', title='Page 3', color=0x00FF40, timestamp=datetime.utcnow())
-	c.add_field(name='pp <user>', value='Get the profile picture of some user')
-	d = discord.Embed(description='Fun', title='Page 4', color=0xFFA2DD, timestamp=datetime.utcnow())
-	#d.add_field(name='think', value='Take a break, just think a little :)')
-	#d.add_field(name='listen2u', value='This is interesting. Why not listen ?')
-	#d.add_field(name='requestcuddle', value='Feeling lonely, upset ? Cuddles help a lot !')
-	d.add_field(name='coolservs', value='Just take a look on our other servers !')
-	await ctx.send(embed=e)
-	await ctx.send(embed=a)
-	await ctx.send(embed=c)
-	await ctx.send(embed=d)
+	e = discord.Embed(description="Help menu", title='SubPages', color=0x33CC33, timestamp=datetime.utcnow())
+	e.add_field(name='`info`', value='Bot information related commands')
+	e.add_field(name='`utilities`', value='All our amazing utilities !')
+	e.add_field(name='`moderator`', value='Moderation related commands')
+	e.add_field(name='`fun`', value='Fun related commands ~^^')
+	e.set_footer(text='Type <k!help <category> to display specific commands.')
 	if ctx.author.id == 458586186328571913 :
-		b = discord.Embed(description='Master commands ♥️', title='Page ♾️', color=0xFF0000, timestamp=datetime.utcnow())
-		b.add_field(name='say <channel> <text>', value='Talk through me !')
-		b.add_field(name='shutdown', value='Shut me down...')
+			e.add_field(name='`master`', value="My master's commands !")
+	await ctx.send(embed=e)
+
+@help.command(name="info")
+async def help_info(ctx):
+	e = discord.Embed(description="Basic commands", title='Commands list', color=0x00FFC0, timestamp=datetime.utcnow())
+	e.add_field(name='`info`', value='Get to know me 💮')
+	e.add_field(name='`ping`', value='Test my reactivity !')
+	e.add_field(name='`suggest <suggestion>`', value='Tell us what you think we could improve on Kanna. Your suggestion will be sent to the official bot server.')
+	e.add_field(name='`bugreport <bug>`', value ='If you found some bug or error on Kanna, just tell us via this command ! Your report will be sent to the official bot server.')
+	e.add_field(name='`help`', value='Displays this message')
+	await ctx.send(embed=e)
+
+@help.command(name='utilities')
+async def help_utilities(ctx):
+	c = discord.Embed(description='Utilities', title='Commands list', color=0x003366, timestamp=datetime.utcnow())
+	c.add_field(name='`pp <user>`', value='Get the profile picture of some user')
+	await ctx.send(embed=c)
+
+@help.command(name="moderator")
+async def help_moderator(ctx):
+	a = discord.Embed(description="Moderator commands", title='Commands list', color=0xffff00, timestamp=datetime.utcnow()) 
+	a.add_field(name='`kick <member/id>`', value='Kick someone from the server')
+	a.add_field(name='`ban <member/id> <reason>`', value='Kick a member from the server permanently (ban)')
+	a.add_field(name='`clear <amount of messages>`', value='Delete a specific number of messages (no limit - be extremely careful)')
+	await ctx.send(embed=a)
+
+@help.command(name="fun")
+async def help_fun(ctx):
+	d = discord.Embed(description='Fun', title='Commands list', color=0xFFA2DD, timestamp=datetime.utcnow())
+	d.add_field(name='Lots of commands incoming !', value="Stay awhile, they'll be deployed soon ;)")
+	await ctx.send(embed=d)
+
+@commands.check(is_owner)
+@help.command(name="master")
+async def help_master(ctx):
+	b = discord.Embed(description='Master commands ♥️', title='Commands list', color=0xFF0000, timestamp=datetime.utcnow())
+	b.add_field(name='`say <channel> <text>`', value='Talk through me !')
+	b.add_field(name='`shutdown`', value='Shut me down...')
+	b.add_field(name='`presence`', value='Reload the presence indicator')
+	try:
 		await ctx.send(embed=b)
+	except:
+		await ctx.send("Access denied ! Y~you're not my master !")
 
 @bot.command(aliases=['add', 'invitelink'])
 async def invite(ctx):
@@ -153,6 +177,12 @@ async def requestcuddle(ctx):
 	e = discord.Embed(description="{} is feeling cuddly ♥".format(ctx.author.name), title='Cuddle required', color=0xFFA2DD, timestamp=datetime.utcnow())
 	e.set_image(url=cudurl)
 	await ctx.send(embed=e)
+
+@commands.check(is_owner)
+@bot.command()
+async def presence(ctx):
+	await bot.change_presence(activity=discord.Game(name=f'with {len(bot.users)} users, on {len(bot.guilds)} servers | k!help'))
+	await ctx.send('Presence succesfully updated.')
 
 @bot.command()
 async def coolservs(ctx):

@@ -108,7 +108,7 @@ async def help_info(ctx):
 	e.add_field(name='`ping`', value='Test my reactivity !')
 	e.add_field(name='`suggest <suggestion>`', value='Tell us what you think we could improve on Kanna. Your suggestion will be sent to the official bot server.')
 	e.add_field(name='`bugreport <bug>`', value ='If you found some bug or error on Kanna, just tell us via this command ! Your report will be sent to the official bot server.')
-	e.add_field(name='`help`', value='Displays this message')
+	e.add_field(name='`help`', value='Displays the primary help message')
 	await ctx.send(embed=e)
 
 @help.command(name='utilities')

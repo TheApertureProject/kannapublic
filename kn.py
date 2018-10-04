@@ -111,7 +111,7 @@ async def help_info(ctx):
 	e.add_field(name='`help`', value='Displays the primary help message')
 	await ctx.send(embed=e)
 
-@help.command(name='utilities')
+@help.command(name='all')
 async def help_utilities(ctx):
 	c = discord.Embed(description='All the commands', title='Commands list', color=0x003366, timestamp=datetime.utcnow())
 	c.add_field(name="`help`, `info`, `ping`, `suggest <suggestion>`, `bugreport <bug>`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`", value='Full commands list')

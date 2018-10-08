@@ -116,7 +116,7 @@ async def help_info(ctx):
 @help.command(name='all')
 async def help_all(ctx):
 	c = discord.Embed(description='All the commands', title='Commands list', color=0x003366, timestamp=datetime.utcnow())
-	c.set_thumbnail(url="https://cdn.discordapp.com/emojis/402195717369888768.png?v=1")
+	c.set_thumbnail(url="https://cdn.discordapp.com/emojis/471044511804686348.gif?v=1")
 	c.add_field(name="`help`, `info`, `ping`, `suggest <suggestion>`, `bugreport <bug>`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`", value='Full commands list')
 	c.add_field(name="`info`, `utilities`, `moderator`, `fun`", value='Help categories')
 	await ctx.send(embed=c)
@@ -131,7 +131,7 @@ async def help_utilities(ctx):
 @help.command(name="moderator")
 async def help_moderator(ctx):
 	a = discord.Embed(description="Moderator commands", title='Commands list', color=0xffff00, timestamp=datetime.utcnow()) 
-	a.set_thumbnail(url="https://cdn.discordapp.com/emojis/464796915356270602.png?v=1")
+	a.set_thumbnail(url="https://cdn.discordapp.com/emojis/474539445379661824.png?v=1")
 	a.add_field(name='`kick <member/id>`', value='Kick someone from the server')
 	a.add_field(name='`ban <member/id> <reason>`', value='Kick a member from the server permanently (ban)')
 	a.add_field(name='`clear <amount of messages>`', value='Delete a specific number of messages (no limit - be extremely careful)')

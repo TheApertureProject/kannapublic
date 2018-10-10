@@ -168,30 +168,6 @@ async def pp(ctx, usr: discord.User):
 	e.set_image(url=usr.avatar_url)
 	await ctx.send(embed=e)
 
-@bot.command()
-async def think(ctx):
-	e = discord.Embed(description="{} is thinking. Do not disturb !".format(ctx.author.name), title='Thinking', color=0xFFA2DD, timestamp=datetime.utcnow())
-	e.set_image(url='https://cdn.discordapp.com/attachments/476653267036930049/477420064908247060/1533896055041.png')
-	await ctx.send(embed=e)
-
-@bot.command()
-async def listen2u(ctx):
-	e = discord.Embed(description="{} is listening to you. Just keep talking :)".format(ctx.author.name), title='Listening', color=0xFFA2DD, timestamp=datetime.utcnow())
-	e.set_image(url='https://cdn.discordapp.com/attachments/476653267036930049/477423561758343178/1533340979532.png')
-	await ctx.send(embed=e)
-
-@bot.command()
-async def requestcuddle(ctx):
-	cud = randint(0,1)
-	cudurl = 'none'
-	if cud==0:
-		cudurl='https://cdn.discordapp.com/attachments/476653267036930049/477428761084690442/20180810_125101.gif'
-	elif cud==1:
-		cudurl='https://cdn.discordapp.com/attachments/476653267036930049/477429550536589322/20180810_125328.gif'
-	e = discord.Embed(description="{} is feeling cuddly ♥".format(ctx.author.name), title='Cuddle required', color=0xFFA2DD, timestamp=datetime.utcnow())
-	e.set_image(url=cudurl)
-	await ctx.send(embed=e)
-
 @commands.check(is_owner)
 @bot.command()
 async def presence(ctx):
@@ -201,6 +177,7 @@ async def presence(ctx):
 @bot.command()
 async def coolservs(ctx):
 	e = discord.Embed(description="Nicu servers 👌", title='Discover other places', color=0xFFFFFF, timestamp=datetime.utcnow())
+	e.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/499655332788830208/471600972045484032.png")
 	e.add_field(name='The Aperture Project', value='A nice place to chill out and have fun, with giveaways, kawaii pics and a super friendly community ! https://discord.gg/JEUUM8c')
 	e.add_field(name="Sebis's bot tutorial", value='The best server to learn how to code bots in different languages ! https://discord.gg/GWdhBSp')
 	await ctx.send(embed=e)
@@ -294,6 +271,7 @@ async def kick_handler(ctx, err):
 async def info(ctx):
 	'Get to know me !'
 	e = discord.Embed(description="I'm Kanna Kamui, the Kawaii Discord bot !", title='More about me', color=0xF4A2FF, timestamp=datetime.utcnow())
+	e.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/499655886982217738/471434314345873419.png")
 	e.add_field(name='Created by', value='tohru.exe#9355')
 	e.add_field(name='Invite link', value='https://bit.ly/2KCvxDw')
 	e.add_field(name='Official server', value='https://discord.gg/PTT9UpZ')

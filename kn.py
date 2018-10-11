@@ -272,7 +272,7 @@ async def info(ctx):
 	'Get to know me !'
 	e = discord.Embed(description="I'm Kanna Kamui, the Kawaii Discord bot !", title='More about me', color=0xF4A2FF, timestamp=datetime.utcnow())
 	e.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/499655886982217738/471434314345873419.png")
-	e.add_field(name='Created by', value='tohru.exe#9355')
+	e.add_field(name='Created by', value='tohru.plp#9355')
 	e.add_field(name='Invite link', value='https://bit.ly/2KCvxDw')
 	e.add_field(name='Official server', value='https://discord.gg/PTT9UpZ')
 	e.add_field(name='Running on discord.py {}'.format(discord.__version__), value=version)

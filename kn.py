@@ -97,7 +97,7 @@ async def help(ctx):
 	e.add_field(name='`utilities`', value='All our amazing utilities !')
 	e.add_field(name='`moderator`', value='Moderation related commands')
 	e.add_field(name='`fun`', value='Fun related commands ~^^')
-	e.set_footer(text='Type <k!help <category> to display specific commands.')
+	e.set_footer(text='Type k!help <category> to display specific commands.')
 	if ctx.author.id == 458586186328571913 :
 			e.add_field(name='`master`', value="My master's commands !")
 	await ctx.send(embed=e)

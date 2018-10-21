@@ -90,11 +90,6 @@ def is_owner(ctx):
 	else :
 		return False
 
-@bot.listen()
-async def on_member_join(member):
-	if 'discord.gg' or 'twitch.tv' in member.name.lower():
-		await member.ban(reason='Pseudo-Link')
-
 @bot.group(invoke_without_command=True, aliases=['hlp', 'commandlist', 'commands'])
 async def help(ctx):
 	e = discord.Embed(description="Help categories", title='*Interactive help*', color=0x33CC33, timestamp=datetime.utcnow())

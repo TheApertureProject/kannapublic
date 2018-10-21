@@ -67,6 +67,7 @@ async def on_member_join(member):
 		role = discord.utils.get(member.guild.roles, name='Members')
 		await member.add_roles(role)
 
+
 @bot.event
 async def on_command_error(ctx, error):
 	if isinstance(error, commands.MissingPermissions):
@@ -88,6 +89,11 @@ def is_owner(ctx):
 		return True
 	else :
 		return False
+
+@bot.listen()
+async def on_member_join(member):
+	if 'discord.gg' or 'twitch.tv' in member.name.lower():
+		await member.ban(reason='Pseudo-Link')
 
 @bot.group(invoke_without_command=True, aliases=['hlp', 'commandlist', 'commands'])
 async def help(ctx):

@@ -158,6 +158,10 @@ async def help_master(ctx):
 	except:
 		await ctx.send("Access denied ! Y~you're not my master !")
 
+@bot.command(aliases=['fun', 'utilities', 'moderator', 'all', 'master'])
+async def info(ctx):
+	await ctx.send("Please type `k!help <name of the category>` to get specific help about a category. Don't forget the `help` !")
+
 @bot.command(aliases=['add', 'invitelink'])
 async def invite(ctx):
 	await ctx.send('Here is my invite link ! Thanks for adding me ♥')

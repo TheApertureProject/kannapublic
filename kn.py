@@ -275,7 +275,7 @@ async def kick_handler(ctx, err):
 @bot.command()
 async def info(ctx):
 	e = discord.Embed(description="I'm Kanna Kamui, the Kawaii Discord bot !", title='More about me', color=0xF4A2FF, timestamp=datetime.utcnow())
-	e.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/499655886982217738/471434314345873419.png")
+	e.set_thumbnail(url="https://media.discordapp.net/attachments/489041727697584148/505805443453419541/1540620568476.png?width=376&height=376")
 	e.add_field(name='Created by', value='tohru.plp#9355')
 	e.add_field(name='Invite link', value='https://bit.ly/2KCvxDw')
 	e.add_field(name='Official server', value='https://discord.gg/PTT9UpZ')

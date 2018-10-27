@@ -33,6 +33,10 @@ print(('[' + ctime()) + '] Establishing connection with the bot...')
 bot = commands.Bot(description='Kanna - The Kawaii Discord bot - Server management bot ©2018 Poulpe#2356', command_prefix='k!')
 bot.remove_command('help')
 
+#emotes
+prefiximg = ':prefiximg:505768310227599371'
+#end-emotes
+
 @bot.event
 async def on_ready():
 	print(('[' + ctime()) + '] Connection successfully established with the bot user :', bot.user.name)
@@ -107,11 +111,11 @@ async def help(ctx):
 async def help_info(ctx):
 	e = discord.Embed(description="🛢️ Basic commands 🛢️", title='➡️Commands list', color=0x00FFC0, timestamp=datetime.utcnow())
 	e.set_thumbnail(url="https://cdn.discordapp.com/emojis/470912852543275009.gif?v=1")
-	e.add_field(name='<\:prefiximg:505768310227599371>`info`', value='Get to know me :3')
-	e.add_field(name='<a:prefiximg:505768310227599371>`ping`', value='Test my reactivity !')
-	e.add_field(name='<a:prefiximg:505768310227599371>`suggest <suggestion>`', value='Tell us what you think we could improve on Kanna. Your suggestion will be sent to the official bot server.')
-	e.add_field(name='<a:prefiximg:505768310227599371>`bugreport <bug>`', value ='If you found some bug or error on Kanna, just tell us via this command ! Your report will be sent to the official bot server.')
-	e.add_field(name='<a:prefiximg:505768310227599371>`help`', value='Displays the primary help message')
+	e.add_field(name=f'<{emoji.prefiximg}>`info`', value='Get to know me :3')
+	e.add_field(name=f'<{emoji.prefiximg}>`ping`', value='Test my reactivity !')
+	e.add_field(name=f'<{emoji.prefiximg}>`suggest <suggestion>`', value='Tell us what you think we could improve on Kanna. Your suggestion will be sent to the official bot server.')
+	e.add_field(name=f'<{emoji.prefiximg}>`bugreport <bug>`', value ='If you found some bug or error on Kanna, just tell us via this command ! Your report will be sent to the official bot server.')
+	e.add_field(name=f'<{emoji.prefiximg}>`help`', value='Displays the primary help message')
 	await ctx.send(embed=e)
 
 @help.command(name='all')

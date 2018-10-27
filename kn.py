@@ -80,7 +80,7 @@ async def on_command_error(ctx, error):
 		await ctx.send("I can't let you do that !")
 	elif isinstance(error, commands.MissingRequiredArgument):
 		await ctx.say('Member not found. Sorry... Retry please !')
-	elif isinstance(error, commands.InvalidArgument):
+	elif isinstance(error, commands.BadArgument):
 		await ctx.say('Member not found. Retry please !')
 
 @bot.listen()

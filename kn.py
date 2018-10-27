@@ -92,7 +92,7 @@ def is_owner(ctx):
 
 @bot.group(invoke_without_command=True, aliases=['hlp', 'commandlist', 'commands'])
 async def help(ctx):
-	e = discord.Embed(description="Help categories", title='*Interactive help*', color=0x33CC33, timestamp=datetime.utcnow())
+	e = discord.Embed(description="🔰 Help categories 🔰", title='➡️Interactive help', color=0x33CC33, timestamp=datetime.utcnow())
 	e.set_thumbnail(url="https://cdn.discordapp.com/emojis/377480330103488532.png?v=1")
 	e.add_field(name='`info`', value='Bot information related commands')
 	e.add_field(name='`utilities`', value='All our amazing utilities !')
@@ -105,9 +105,9 @@ async def help(ctx):
 
 @help.command(name="info")
 async def help_info(ctx):
-	e = discord.Embed(description="Basic commands", title='Commands list', color=0x00FFC0, timestamp=datetime.utcnow())
+	e = discord.Embed(description="🛢️ Basic commands 🛢️", title='➡️Commands list', color=0x00FFC0, timestamp=datetime.utcnow())
 	e.set_thumbnail(url="https://cdn.discordapp.com/emojis/470912852543275009.gif?v=1")
-	e.add_field(name='`info`', value='Get to know me 💮')
+	e.add_field(name='`info`', value='Get to know me :3')
 	e.add_field(name='`ping`', value='Test my reactivity !')
 	e.add_field(name='`suggest <suggestion>`', value='Tell us what you think we could improve on Kanna. Your suggestion will be sent to the official bot server.')
 	e.add_field(name='`bugreport <bug>`', value ='If you found some bug or error on Kanna, just tell us via this command ! Your report will be sent to the official bot server.')
@@ -116,7 +116,7 @@ async def help_info(ctx):
 
 @help.command(name='all')
 async def help_all(ctx):
-	c = discord.Embed(description='All the commands', title='Commands list', color=0x003366, timestamp=datetime.utcnow())
+	c = discord.Embed(description='📚 All the commands 📚', title='➡️Commands list', color=0x003366, timestamp=datetime.utcnow())
 	c.set_thumbnail(url="https://cdn.discordapp.com/emojis/471044511804686348.gif?v=1")
 	c.add_field(name="`help`, `info`, `ping`, `suggest <suggestion>`, `bugreport <bug>`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`", value='Full commands list')
 	c.add_field(name="`info`, `utilities`, `moderator`, `fun`", value='Help categories')
@@ -124,14 +124,14 @@ async def help_all(ctx):
 
 @help.command(name='utilities')
 async def help_utilities(ctx):
-	c = discord.Embed(description='Utilities', title='Commands list', color=0x003366, timestamp=datetime.utcnow())
+	c = discord.Embed(description='⚒️ Utilities ⚒️', title='➡️Commands list', color=0x003366, timestamp=datetime.utcnow())
 	c.set_thumbnail(url="https://cdn.discordapp.com/emojis/395627468276367370.png?v=1")
 	c.add_field(name='`pp <user>`', value='Get the profile picture of some user')
 	await ctx.send(embed=c)
 
 @help.command(name="moderator")
 async def help_moderator(ctx):
-	a = discord.Embed(description="Moderator commands", title='Commands list', color=0xffff00, timestamp=datetime.utcnow()) 
+	a = discord.Embed(description="🛡️ Moderator commands 🛡️", title='Commands list', color=0xffff00, timestamp=datetime.utcnow()) 
 	a.set_thumbnail(url="https://cdn.discordapp.com/emojis/474539445379661824.png?v=1")
 	a.add_field(name='`kick <member/id>`', value='Kick someone from the server')
 	a.add_field(name='`ban <member/id> <reason>`', value='Kick a member from the server permanently (ban)')
@@ -140,7 +140,7 @@ async def help_moderator(ctx):
 
 @help.command(name="fun")
 async def help_fun(ctx):
-	d = discord.Embed(description='Fun', title='Commands list', color=0xFFA2DD, timestamp=datetime.utcnow())
+	d = discord.Embed(description='🎀 Fun 🎀', title='➡️Commands list', color=0xFFA2DD, timestamp=datetime.utcnow())
 	d.set_thumbnail(url="https://cdn.discordapp.com/emojis/398860813881835533.png?v=1")
 	d.add_field(name='Lots of commands incoming !', value="Stay awhile, they'll be deployed soon ;)")
 	await ctx.send(embed=d)
@@ -148,7 +148,7 @@ async def help_fun(ctx):
 @commands.check(is_owner)
 @help.command(name="master")
 async def help_master(ctx):
-	b = discord.Embed(description='Master commands ♥️', title='Commands list', color=0xFF0000, timestamp=datetime.utcnow())
+	b = discord.Embed(description='♥️ Master commands ♥️', title='➡️Commands list', color=0xFF0000, timestamp=datetime.utcnow())
 	b.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/498859365046943745/1538964466545.png")
 	b.add_field(name='`say <channel> <text>`', value='Talk through me !')
 	b.add_field(name='`shutdown`', value='Shut me down...')
@@ -169,7 +169,7 @@ async def invite(ctx):
 
 @bot.command(aliases=['profilepic', 'ppic', 'avatar'])
 async def pp(ctx, usr: discord.User):
-	e = discord.Embed(description="{}'s profile picture".format(usr.name), title='Avatar', color=0x5D5DFF, timestamp=datetime.utcnow())
+	e = discord.Embed(description="👤 {}'s profile picture 👤".format(usr.name), title='➡️Avatar', color=0x5D5DFF, timestamp=datetime.utcnow())
 	e.set_image(url=usr.avatar_url)
 	await ctx.send(embed=e)
 
@@ -181,7 +181,7 @@ async def presence(ctx):
 
 @bot.command()
 async def coolservs(ctx):
-	e = discord.Embed(description="Nicu servers 👌", title='Discover other places', color=0xFFFFFF, timestamp=datetime.utcnow())
+	e = discord.Embed(description="🌴 Nicu servers 🌴", title='➡️Discover other places', color=0xFFFFFF, timestamp=datetime.utcnow())
 	e.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/499655332788830208/471600972045484032.png")
 	e.add_field(name='The Aperture Project', value='A nice place to chill out and have fun, with giveaways, kawaii pics and a super friendly community ! https://discord.gg/JEUUM8c')
 	e.add_field(name="Sebis's bot tutorial", value='The best server to learn how to code bots in different languages ! https://discord.gg/GWdhBSp')

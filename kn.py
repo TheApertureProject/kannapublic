@@ -135,7 +135,7 @@ async def help_utilities(ctx):
 
 @help.command(name="moderator")
 async def help_moderator(ctx):
-	a = discord.Embed(description="🛡️ Moderator commands 🛡️", title='Commands list', color=0xffff00, timestamp=datetime.utcnow()) 
+	a = discord.Embed(description="🛡️ Moderator commands 🛡️", title='➡️Commands list', color=0xffff00, timestamp=datetime.utcnow()) 
 	a.set_thumbnail(url="https://cdn.discordapp.com/emojis/474539445379661824.png?v=1")
 	a.add_field(name=f'<{prefiximg}>`kick <member/id>`', value='Kick someone from the server')
 	a.add_field(name=f'<{prefiximg}>`ban <member/id> <reason>`', value='Kick a member from the server permanently (ban)')

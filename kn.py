@@ -109,7 +109,7 @@ async def help(ctx):
 
 @help.command(name="info")
 async def help_info(ctx):
-	e = discord.Embed(description="🛢️ Basic commands 🛢️", title='➡️Commands list', color=0x00FFC0, timestamp=datetime.utcnow())
+	e = discord.Embed(description="📎 Basic commands 📎", title='➡️Commands list', color=0x00FFC0, timestamp=datetime.utcnow())
 	e.set_thumbnail(url="https://cdn.discordapp.com/emojis/470912852543275009.gif?v=1")
 	e.add_field(name=f'<{prefiximg}>`info`', value='Get to know me :3')
 	e.add_field(name=f'<{prefiximg}>`ping`', value='Test my reactivity !')
@@ -130,16 +130,16 @@ async def help_all(ctx):
 async def help_utilities(ctx):
 	c = discord.Embed(description='⚒️ Utilities ⚒️', title='➡️Commands list', color=0x003366, timestamp=datetime.utcnow())
 	c.set_thumbnail(url="https://cdn.discordapp.com/emojis/395627468276367370.png?v=1")
-	c.add_field(name='`pp <user>`', value='Get the profile picture of some user')
+	c.add_field(name=f'<{prefiximg}>`pp <user>`', value='Get the profile picture of some user')
 	await ctx.send(embed=c)
 
 @help.command(name="moderator")
 async def help_moderator(ctx):
 	a = discord.Embed(description="🛡️ Moderator commands 🛡️", title='Commands list', color=0xffff00, timestamp=datetime.utcnow()) 
 	a.set_thumbnail(url="https://cdn.discordapp.com/emojis/474539445379661824.png?v=1")
-	a.add_field(name='`kick <member/id>`', value='Kick someone from the server')
-	a.add_field(name='`ban <member/id> <reason>`', value='Kick a member from the server permanently (ban)')
-	a.add_field(name='`clear <amount of messages>`', value='Delete a specific number of messages (no limit - be extremely careful)')
+	a.add_field(name=f'<{prefiximg}>`kick <member/id>`', value='Kick someone from the server')
+	a.add_field(name=f'<{prefiximg}>`ban <member/id> <reason>`', value='Kick a member from the server permanently (ban)')
+	a.add_field(name=f'<{prefiximg}>`clear <amount of messages>`', value='Delete a specific number of messages (no limit - be extremely careful)')
 	await ctx.send(embed=a)
 
 @help.command(name="fun")
@@ -154,9 +154,9 @@ async def help_fun(ctx):
 async def help_master(ctx):
 	b = discord.Embed(description='♥️ Master commands ♥️', title='➡️Commands list', color=0xFF0000, timestamp=datetime.utcnow())
 	b.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/498859365046943745/1538964466545.png")
-	b.add_field(name='`say <channel> <text>`', value='Talk through me !')
-	b.add_field(name='`shutdown`', value='Shut me down...')
-	b.add_field(name='`presence`', value='Reload the presence indicator')
+	b.add_field(name=f'<{prefiximg}>`say <channel> <text>`', value='Talk through me !')
+	b.add_field(name=f'<{prefiximg}>`shutdown`', value='Shut me down...')
+	b.add_field(name=f'<{prefiximg}>`presence`', value='Reload the presence indicator')
 	try:
 		await ctx.send(embed=b)
 	except:
@@ -168,12 +168,12 @@ async def fun(ctx):
 
 @bot.command(aliases=['add', 'invitelink'])
 async def invite(ctx):
-	await ctx.send('Here is my invite link ! Thanks for adding me ♥')
-	await ctx.send('<https://bit.ly/2KCvxDw>')
+	await ctx.send("""Here is my invite link ! Thanks for adding me ♥
+<https://bit.ly/2KCvxDw>""")
 
 @bot.command(aliases=['profilepic', 'ppic', 'avatar'])
 async def pp(ctx, usr: discord.User):
-	e = discord.Embed(description="👤 {}'s profile picture 👤".format(usr.name), title='➡️Avatar', color=0x5D5DFF, timestamp=datetime.utcnow())
+	e = discord.Embed(description="👤 {}'s profile picture".format(usr.name), title='➡️Avatar', color=0x5D5DFF, timestamp=datetime.utcnow())
 	e.set_image(url=usr.avatar_url)
 	await ctx.send(embed=e)
 
@@ -194,7 +194,6 @@ async def coolservs(ctx):
 @commands.check(is_owner)
 @bot.command(pass_context=True)
 async def say(ctx, channel: discord.TextChannel, *, text):
-	'Talk through me.'
 	try:
 		await ctx.channel.send(text)
 	except Exception as e:
@@ -210,7 +209,6 @@ async def say_handler(ctx, err):
 @commands.check(is_owner)
 @bot.command()
 async def shutdown(ctx):
-	'Completely shut Kanna down.'
 	try:
 		await ctx.send('Yes Master !')
 		await ctx.send('Shutting down...')
@@ -231,7 +229,6 @@ async def shutdown_handler(ctx, err):
 @commands.has_permissions(ban_members=True)
 @bot.command()
 async def ban(ctx, member: discord.Member, *, reason: str = None):
-	'Ban a member from the server.'
 	try:
 		if reason==None:
 			await member.ban()
@@ -247,7 +244,6 @@ async def ban(ctx, member: discord.Member, *, reason: str = None):
 @commands.has_permissions(kick_members=True)
 @bot.command()
 async def kick(ctx, *, member: discord.Member):
-	'Kick a member from the server.'
 	try:
 		await member.kick()
 		await ctx.send('Member', member, 'was successfully kicked ! Babaï !')
@@ -278,7 +274,6 @@ async def kick_handler(ctx, err):
 
 @bot.command()
 async def info(ctx):
-	'Get to know me !'
 	e = discord.Embed(description="I'm Kanna Kamui, the Kawaii Discord bot !", title='More about me', color=0xF4A2FF, timestamp=datetime.utcnow())
 	e.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/499655886982217738/471434314345873419.png")
 	e.add_field(name='Created by', value='tohru.plp#9355')
@@ -291,7 +286,6 @@ async def info(ctx):
 
 @bot.command()
 async def bugreport(ctx, *, bug):
-	"Report a bug or error that you saw with Kanna. Your report will be sent to the Kanna's Server !"
 	my_guild = bot.get_guild(462871882916560896)
 	bugreport = my_guild.get_channel(462876207097053195)
 	e = discord.Embed(description=bug, title='Bug Report', color=16711680, timestamp=datetime.utcnow())
@@ -302,7 +296,6 @@ async def bugreport(ctx, *, bug):
 
 @bot.command()
 async def suggest(ctx, *, suggestion):
-	"Any idea of how could we improve Kanna ? Just use this command to suggest ideas ! Your suggestion will be sent to the Kanna's Server !"
 	my_guild = bot.get_guild(462871882916560896)
 	suggested = my_guild.get_channel(464517370036224011)
 	e = discord.Embed(description=suggestion, title='Suggestion', color=4259584, timestamp=datetime.utcnow())
@@ -313,9 +306,8 @@ async def suggest(ctx, *, suggestion):
 
 @bot.command()
 async def ping(ctx):
-	'Get the ping time of the bot.'
 	t = await ctx.send('Pong!')
 	ms = (t.timestamp - ctx.message.timestamp).total_seconds() * 1000
-	await t.edit(new_content='Pong! Latency : **{} milliseconds** !'.format(int(ms)), content='Pong! Latency : **{} milliseconds** !'.format(int(ms)))
+	await t.edit(new_content=f'Pong! Latency : **{int(ms)} milliseconds** !')
 
 bot.run(bot.run(os.environ['TOKEN']))

@@ -26,6 +26,9 @@ print(('[' + ctime()) + "] Lib 'random' successfully imported !")
 import sys
 from sys import exit, version
 print(('[' + ctime()) + "] Lib 'sys' [exit, version] successfully imported !")
+import asyncio
+from asyncio import *
+print(('[' + ctime()) + "] Lib 'asyncio' [exit, version] successfully imported !")
 import discord
 from discord.ext import commands
 print(('[' + ctime()) + "] Lib 'discord' successfully imported !")

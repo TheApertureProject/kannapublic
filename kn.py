@@ -125,7 +125,7 @@ async def help_info(ctx):
 async def help_all(ctx):
 	c = discord.Embed(description='📚 All the commands 📚', title='➡️Commands list', color=0x003366, timestamp=datetime.utcnow())
 	c.set_thumbnail(url="https://cdn.discordapp.com/emojis/471044511804686348.gif?v=1")
-	c.add_field(name="`help`, `info`, `ping`, `suggest <suggestion>`, `bugreport <bug>`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`", value='Full commands list')
+	c.add_field(name="`help`, `info`, `ping`, `suggest <suggestion>`, `bugreport <bug>`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`, `pp <user>`, `roll <number>`", value='Full commands list')
 	c.add_field(name="`info`, `utilities`, `moderator`, `fun`", value='Help categories')
 	await ctx.send(embed=c)
 

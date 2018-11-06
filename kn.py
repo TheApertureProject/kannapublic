@@ -146,6 +146,7 @@ async def help_moderator(ctx):
 async def help_fun(ctx):
 	d = discord.Embed(description='🎀 Fun 🎀', title='➡️Commands list', color=0xFFA2DD, timestamp=datetime.utcnow())
 	d.set_thumbnail(url="https://cdn.discordapp.com/emojis/398860813881835533.png?v=1")
+	d.add_field(name='`roll <number>`', value="Roll a dice with the specified number of faces (no limit !)")
 	d.add_field(name='Lots of commands incoming !', value="Stay awhile, they'll be deployed soon ;)")
 	await ctx.send(embed=d)
 
@@ -161,6 +162,18 @@ async def help_master(ctx):
 		await ctx.send(embed=b)
 	except:
 		await ctx.send("Access denied ! Y~you're not my master !")
+
+#fun
+
+@bot.command()
+async def roll(ctx, value: int):
+	try:
+		result=randint(1,value)
+		msg = await ctx.send(f'And the result is...')
+		await asyncio.sleep(2)
+		await msg.edit(content=f'And the result is... {result} ! 🎉')
+	except:
+		await ctx.send('Please send a valid number of messages !')
 
 @bot.command(aliases=['utilities', 'moderator', 'all', 'master'])
 async def fun(ctx):

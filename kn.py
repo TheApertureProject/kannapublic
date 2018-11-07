@@ -290,8 +290,8 @@ async def info(ctx):
 	a = """Created by Poulpy#9355
 Hosted on Heroku
 Running on discord.py v1.0.0a
-[Invite link](https://bit.ly/2KCvxDw)
-[Official Server](https://discordapp.com/oauth2/authorize?client_id=467332623677521940&scope=bot&permissions=2146958591)"""
+[Invite link](https://discordapp.com/oauth2/authorize?client_id=467332623677521940&scope=bot&permissions=2146958591)
+[Official Server](https://discord.gg/PTT9UpZ)"""
 	e = discord.Embed(description="Kanna Kamui, the Kawaii Discord bot !", title='More about me', color=0xF4A2FF, timestamp=datetime.utcnow())
 	e.set_thumbnail(url="https://media.discordapp.net/attachments/489041727697584148/505805443453419541/1540620568476.png?width=376&height=376")
 	e.add_field(name="Information", value=a)

@@ -32,6 +32,9 @@ print(('[' + ctime()) + "] Lib 'asyncio' [exit, version] successfully imported !
 import discord
 from discord.ext import commands
 print(('[' + ctime()) + "] Lib 'discord' successfully imported !")
+import dblpy
+from dblpy import *
+print(('[' + ctime()) + "] Lib 'dblpy' successfully imported !")
 print(('[' + ctime()) + '] Establishing connection with the bot...')
 bot = commands.Bot(description='Kanna - The Kawaii Discord bot - Server management bot ©2018 Poulpe#2356', command_prefix='k!')
 bot.remove_command('help')
@@ -47,6 +50,14 @@ async def on_ready():
 	await bot.change_presence(activity=discord.Game(name=f'with {len(bot.users)} users, on {len(bot.guilds)} servers | k!help'))
 	print(('[' + ctime()) + '] Presence successfully updated !')
 	print('___________________________________________________')
+        while True:
+            logger.info('Attempting to post server count')
+            try:
+                await self.dblpy.post_server_count()
+                logger.info('Succesfully posted server count ({})'.format(len(self.bot.guilds)))
+            except Exception as e:
+                logger.exception('Failed to post server count\n{}: {}'.format(type(e).__name__, e))
+            await asyncio.sleep(1800)
 
 @bot.event
 async def on_guild_join(guild):

@@ -41,11 +41,24 @@ print(('[' + ctime()) + '] Establishing connection with the bot...')
 bot = commands.Bot(description='Kanna - The Kawaii Discord bot - Server management bot ©2018 Poulpe#2356', command_prefix='k!')
 bot.remove_command('help')
 
-def __init__(dblbot):
-	dblbot = bot
-	dbltoken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ2NzMzMjYyMzY3NzUyMTk0MCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTQxOTQ5NDU4fQ.qEzwfPUK1VTwU-8lBMVLMY9nTcNlM_yYa6gfsqDpX00'
-	dblpy = dbl.Client(self.bot, self.token)
-	dblbot.loop.create_task(self.update_stats())
+
+class DiscordBotsOrgAPI:
+	"""Handles interactions with the discordbots.org API"""
+
+	def __init__(self, bot):
+		self.bot = bot
+		self.token = 'dbl_token'  #  set this to your DBL token
+		self.dblpy = dbl.Client(self.bot, self.token)
+		self.bot.loop.create_task(self.update_stats())
+	
+	async def update_stats(self):
+	"""This function runs every 30 minutes to automatically update your server count"""
+		while True:
+			try:
+				await self.dblpy.post_server_count()
+			except Exception as e:
+				print(e.args)
+			await asyncio.sleep(1800)
 
 #emotes
 prefiximg = ':prefiximg:505768310227599371'
@@ -58,12 +71,6 @@ async def on_ready():
 	await bot.change_presence(activity=discord.Game(name=f'with {len(bot.users)} users, on {len(bot.guilds)} servers | k!help'))
 	print(('[' + ctime()) + '] Presence successfully updated !')
 	print('___________________________________________________')
-	while True:
-		try:
-			await dblpy.post_server_count()
-		except Exception as e:
-			print(e.args)
-		await asyncio.sleep(1800)
 
 @bot.event
 async def on_guild_join(guild):

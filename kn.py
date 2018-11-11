@@ -35,6 +35,8 @@ print(('[' + ctime()) + "] Lib 'discord' successfully imported !")
 import dbl
 from dbl import *
 print(('[' + ctime()) + "] Lib 'dblpy' successfully imported !")
+import aiohttp
+print(('[' + ctime()) + "] Lib 'aiohttp' successfully imported !")
 print(('[' + ctime()) + '] Establishing connection with the bot...')
 bot = commands.Bot(description='Kanna - The Kawaii Discord bot - Server management bot ©2018 Poulpe#2356', command_prefix='k!')
 bot.remove_command('help')

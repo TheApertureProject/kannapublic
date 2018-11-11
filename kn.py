@@ -56,14 +56,14 @@ async def on_ready():
 	await bot.change_presence(activity=discord.Game(name=f'with {len(bot.users)} users, on {len(bot.guilds)} servers | k!help'))
 	print(('[' + ctime()) + '] Presence successfully updated !')
 	print('___________________________________________________')
-        while True:
-            logger.info('Attempting to post server count')
-            try:
-                await self.dblpy.post_server_count()
-                logger.info('Succesfully posted server count ({})'.format(len(self.bot.guilds)))
-            except Exception as e:
-                logger.exception('Failed to post server count\n{}: {}'.format(type(e).__name__, e))
-            await asyncio.sleep(1800)
+	while True:
+		logger.info('Attempting to post server count')
+		try:
+			await self.dblpy.post_server_count()
+			logger.info('Succesfully posted server count ({})'.format(len(self.bot.guilds)))
+		except Exception as e:
+			logger.exception('Failed to post server count\n{}: {}'.format(type(e).__name__, e))
+		await asyncio.sleep(1800)
 
 @bot.event
 async def on_guild_join(guild):

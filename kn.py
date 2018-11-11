@@ -62,7 +62,7 @@ async def on_ready():
 		try:
 			await self.dblpy.post_server_count()
 		except Exception as e:
-			print('Error')
+			print(e.args)
 		await asyncio.sleep(1800)
 
 @bot.event

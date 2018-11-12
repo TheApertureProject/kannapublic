@@ -188,7 +188,6 @@ async def help_master(ctx):
 	b.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/498859365046943745/1538964466545.png")
 	b.add_field(name=f'<{prefiximg}>`say <channel> <text>`', value='Talk through me !')
 	b.add_field(name=f'<{prefiximg}>`shutdown`', value='Shut me down...')
-	b.add_field(name=f'<{prefiximg}>`presence`', value='Reload the presence indicator')
 	try:
 		await ctx.send(embed=b)
 	except:
@@ -220,12 +219,6 @@ async def pp(ctx, usr: discord.User):
 	e = discord.Embed(description="👤 {}'s profile picture".format(usr.name), title='➡️Avatar', color=0x5D5DFF, timestamp=datetime.utcnow())
 	e.set_image(url=usr.avatar_url)
 	await ctx.send(embed=e)
-
-@commands.check(is_owner)
-@bot.command()
-async def presence(ctx):
-	await bot.change_presence(activity=discord.Game(name=f'with {len(bot.users)} users, on {len(bot.guilds)} servers | k!help'))
-	await ctx.send('Presence succesfully updated.')
 
 @bot.command()
 async def coolservs(ctx):

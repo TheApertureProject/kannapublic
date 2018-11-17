@@ -224,7 +224,7 @@ async def pp(ctx, usr: discord.User):
 	await ctx.send(embed=e)
 
 @bot.command()
-async def wiki(ctx, *, wiki):
+async def wiki(ctx, wiki):
 	a=f"""**WikiPedia Search**
 🔀 *More info* https://en.wikipedia.org/wiki/{wiki}"""
 	await ctx.send(a)

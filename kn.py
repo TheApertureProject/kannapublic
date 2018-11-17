@@ -214,11 +214,19 @@ async def invite(ctx):
 	await ctx.send("""Here is my invite link ! Thanks for adding me ♥
 <https://bit.ly/2KCvxDw>""")
 
+#utils
+
 @bot.command(aliases=['profilepic', 'ppic', 'avatar'])
 async def pp(ctx, usr: discord.User):
 	e = discord.Embed(description="👤 {}'s profile picture".format(usr.name), title='➡️Avatar', color=0x5D5DFF, timestamp=datetime.utcnow())
 	e.set_image(url=usr.avatar_url)
 	await ctx.send(embed=e)
+
+@bot.command()
+async def wiki(ctx, *, wiki):
+	a=f"""**WikiPedia Search**
+🔀 [Advanced search results](https://en.wikipedia.org/wiki/)"""
+	await bot.send(a)
 
 @bot.command()
 async def coolservs(ctx):

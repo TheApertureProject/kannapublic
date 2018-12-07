@@ -49,6 +49,7 @@ async def on_ready():
 	print(('[' + ctime()) + '] Presence successfully updated !')
 	print('___________________________________________________')
 	bot.loop.create_task(status_task())
+	bot.loop.create_task(update_stats())
 
 async def status_task():
 	while True:
@@ -71,6 +72,9 @@ class DiscordBotsOrgAPI:
 			except Exception as e:
 				print(e.args)
 			await asyncio.sleep(1800)
+
+def setup(bot):
+    bot.add_cog(DiscordBotsOrgAPI(bot))
 
 #emotes
 prefiximg = ':prefiximg:505768310227599371'

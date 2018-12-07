@@ -41,22 +41,6 @@ print(('[' + ctime()) + '] Establishing connection with the bot...')
 bot = commands.Bot(description='Kanna - The Kawaii Discord bot - Server management bot ©2018 Poulpe#2356', command_prefix='k!')
 bot.remove_command('help')
 
-@bot.event
-async def on_ready():
-	print(('[' + ctime()) + '] Connection successfully established with the bot user :', bot.user.name)
-	print('Bot user ID :', bot.user.name)
-	await bot.change_presence(activity=discord.Game(name=f'with {len(bot.users)} users, on {len(bot.guilds)} servers | k!help'))
-	print(('[' + ctime()) + '] Presence successfully updated !')
-	print('___________________________________________________')
-	bot.loop.create_task(status_task())
-	bot.loop.create_task(update_stats())
-
-async def status_task():
-	while True:
-		names = ['k!help', 'with Poulpy', 'on AP3RTURE', f'with {len(bot.users)} users', f'on {len(bot.guilds)} servers']
-		for name in names:
-			await bot.change_presence(activity=discord.Game(name=name))
-			await asyncio.sleep(6)
 
 class DiscordBotsOrgAPI:
 	def __init__(self, bot):
@@ -75,6 +59,23 @@ class DiscordBotsOrgAPI:
 
 def setup(bot):
     bot.add_cog(DiscordBotsOrgAPI(bot))
+
+@bot.event
+async def on_ready():
+	print(('[' + ctime()) + '] Connection successfully established with the bot user :', bot.user.name)
+	print('Bot user ID :', bot.user.name)
+	await bot.change_presence(activity=discord.Game(name=f'with {len(bot.users)} users, on {len(bot.guilds)} servers | k!help'))
+	print(('[' + ctime()) + '] Presence successfully updated !')
+	print('___________________________________________________')
+	bot.loop.create_task(status_task())
+	bot.loop.create_task(update_stats())
+
+async def status_task():
+	while True:
+		names = ['k!help', 'with Poulpy', 'on AP3RTURE', f'with {len(bot.users)} users', f'on {len(bot.guilds)} servers']
+		for name in names:
+			await bot.change_presence(activity=discord.Game(name=name))
+			await asyncio.sleep(6)
 
 #emotes
 prefiximg = ':prefiximg:505768310227599371'
